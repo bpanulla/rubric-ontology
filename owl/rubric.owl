@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://panulla.org/owl/rubric/2009/05/rubric.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://panulla.org/owl/rubric/2009/05/rubric.owl" > 
+  <rdf:Description rdf:about="#hasCategory">
+    <rdfs:domain rdf:resource="#Rubric"/>
+    <rdfs:range rdf:resource="#Category"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Work">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#HolisticRubric">
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Rubric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Individual">
+    <rdf:type rdf:resource="#Scope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ChecklistRubric">
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Scope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasCriterion">
+    <rdfs:range rdf:resource="#Criterion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Element"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Team">
+    <rdf:type rdf:resource="#Scope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Element">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Category">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasScope">
+    <rdfs:domain rdf:resource="#Rubric"/>
+    <rdfs:range rdf:resource="#Scope"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasSubject">
+    <rdfs:range rdf:resource="#Work"/>
+    <rdfs:domain rdf:resource="#Rubric"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Element"/>
+    <rdfs:range rdf:resource="#Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Self">
+    <rdf:type rdf:resource="#Scope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#AnalyticRubric">
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An analytic rubric is one composed of sub elements and categories.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Criterion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasElement">
+    <rdfs:range rdf:resource="#Element"/>
+    <rdfs:domain rdf:nodeID="#Category"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 516)  http://protege.stanford.edu -->
