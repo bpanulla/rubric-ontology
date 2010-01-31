@@ -55,23 +55,33 @@
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <Scope rdf:ID="Self"/>
-  <xsd:string rdf:ID="hasCriterion">
+  <xsd:string rdf:ID="criterion">
     <rdfs:subClassOf>
       <xsd:string rdf:ID="StringDatatypeProperty">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
       </xsd:string>
     </rdfs:subClassOf>
   </xsd:string>
-  <Scope rdf:ID="Individual"/>
-  <xsd:string rdf:ID="hasTitle">
-    <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
-  </xsd:string>
-  <xsd:string rdf:ID="hasLevelFeedback">
+  <xsd:string rdf:ID="elementFeedback">
     <rdfs:subClassOf>
-      <xsd:string rdf:ID="hasFeedback">
+      <xsd:string rdf:ID="feedback">
         <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
       </xsd:string>
     </rdfs:subClassOf>
+  </xsd:string>
+  <Scope rdf:ID="Individual"/>
+  <xsd:string rdf:ID="title">
+    <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
+  </xsd:string>
+  <xsd:integer rdf:ID="score">
+    <rdfs:subClassOf>
+      <xsd:integer rdf:ID="IntegerDatatypeProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+      </xsd:integer>
+    </rdfs:subClassOf>
+  </xsd:integer>
+  <xsd:string rdf:ID="levelFeedback">
+    <rdfs:subClassOf rdf:resource="#feedback"/>
   </xsd:string>
   <Scope rdf:ID="Team"/>
   <xsd:ID rdf:ID="hasKey">
@@ -81,19 +91,9 @@
       </xsd:ID>
     </rdfs:subClassOf>
   </xsd:ID>
-  <xsd:string rdf:ID="hasBenchmark">
+  <xsd:string rdf:ID="benchmark">
     <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
   </xsd:string>
-  <xsd:string rdf:ID="hasElementFeedback">
-    <rdfs:subClassOf rdf:resource="#hasFeedback"/>
-  </xsd:string>
-  <xsd:integer rdf:ID="hasScore">
-    <rdfs:subClassOf>
-      <xsd:integer rdf:ID="IntegerDatatypeProperty">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-      </xsd:integer>
-    </rdfs:subClassOf>
-  </xsd:integer>
 </rdf:RDF>
 
 <!-- Created with TopBraid Composer -->
