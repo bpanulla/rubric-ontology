@@ -1,51 +1,16 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="http://fraught.org/owl/rubric/2010/01/rubric.owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://fraught.org/owl/rubric/2010/01/rubric.owl#"
   xml:base="http://fraught.org/owl/rubric/2010/01/rubric.owl">
   <owl:Ontology rdf:about="">
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.5</owl:versionInfo>
   </owl:Ontology>
-  <rdfs:Class rdf:ID="ListObjectProperty">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdfs:Class>
-  <rdfs:Class rdf:ID="hasElements">
-    <rdfs:subClassOf rdf:resource="#ListObjectProperty"/>
-  </rdfs:Class>
-  <rdfs:Class rdf:ID="hasLevels">
-    <rdfs:subClassOf rdf:resource="#ListObjectProperty"/>
-  </rdfs:Class>
-  <rdfs:Class rdf:ID="hasCategories">
-    <rdfs:subClassOf rdf:resource="#ListObjectProperty"/>
-  </rdfs:Class>
-  <rdfs:Class rdf:ID="hasScope">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdfs:Class>
-  <owl:Class rdf:ID="Category">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Scope">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </owl:Class>
-  <owl:Class rdf:ID="AnalyticRubric">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Rubric"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#Rubric">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Element">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </owl:Class>
-  <owl:Class rdf:ID="ChecklistRubric">
-    <rdfs:subClassOf rdf:resource="#Rubric"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Level">
+  
+  <owl:Class rdf:ID="Rubric">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:ID="HolisticRubric">
@@ -54,7 +19,34 @@
   <owl:Class rdf:ID="Evaluation">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
-  <Scope rdf:ID="Self"/>
+  <owl:Class rdf:ID="ChecklistRubric">
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AnalyticRubric">
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Scope">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CategoryList">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Category">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ElementList">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Element">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LevelList">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Level">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+
   <xsd:string rdf:ID="criterion">
     <rdfs:subClassOf>
       <xsd:string rdf:ID="StringDatatypeProperty">
@@ -62,17 +54,14 @@
       </xsd:string>
     </rdfs:subClassOf>
   </xsd:string>
-  <xsd:string rdf:ID="elementFeedback">
+
+  <xsd:ID rdf:ID="key">
     <rdfs:subClassOf>
-      <xsd:string rdf:ID="feedback">
-        <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
-      </xsd:string>
+      <xsd:ID rdf:ID="GUIDDatatypeProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+      </xsd:ID>
     </rdfs:subClassOf>
-  </xsd:string>
-  <Scope rdf:ID="Individual"/>
-  <xsd:string rdf:ID="title">
-    <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
-  </xsd:string>
+  </xsd:ID>
   <xsd:integer rdf:ID="score">
     <rdfs:subClassOf>
       <xsd:integer rdf:ID="IntegerDatatypeProperty">
@@ -80,20 +69,48 @@
       </xsd:integer>
     </rdfs:subClassOf>
   </xsd:integer>
-  <xsd:string rdf:ID="levelFeedback">
-    <rdfs:subClassOf rdf:resource="#feedback"/>
-  </xsd:string>
-  <Scope rdf:ID="Team"/>
-  <xsd:ID rdf:ID="hasKey">
+  <xsd:string rdf:ID="elementFeedback">
     <rdfs:subClassOf>
-      <xsd:ID rdf:ID="GUIDDatatypeProperty">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-      </xsd:ID>
+      <xsd:string rdf:ID="feedback">
+        <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
+      </xsd:string>
     </rdfs:subClassOf>
-  </xsd:ID>
+  </xsd:string>  
+  <xsd:string rdf:ID="title">
+    <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
+  </xsd:string>
   <xsd:string rdf:ID="benchmark">
     <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
   </xsd:string>
+  <xsd:string rdf:ID="levelFeedback">
+    <rdfs:subClassOf rdf:resource="#feedback"/>
+  </xsd:string>
+
+  <owl:Class rdf:about="#ListObjectProperty">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:Class>
+  <owl:Class rdf:ID="hasLevels">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="ListObjectProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="hasElements">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:about="#ListObjectProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="hasCategories">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:about="#ListObjectProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="hasScope">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:Class>
+  
+  <Scope rdf:ID="Self"/>
+  <Scope rdf:ID="Team"/>
+  <Scope rdf:ID="Individual"/>
 </rdf:RDF>
 
 <!-- Created with TopBraid Composer -->
