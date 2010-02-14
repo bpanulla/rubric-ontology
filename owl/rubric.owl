@@ -9,6 +9,10 @@
   <owl:Ontology rdf:about="">
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.5</owl:versionInfo>
   </owl:Ontology>
+  <owl:Class rdf:ID="ListObjectProperty">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:Class>
   <owl:Class rdf:ID="Element">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
@@ -16,85 +20,74 @@
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:ID="hasCategories">
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-    <rdfs:range rdf:resource="#CategoryList"/>
+    <rdfs:subClassOf rdf:resource="#ListObjectProperty"/>
     <rdfs:domain rdf:resource="#Rubric"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="ListObjectProperty"/>
-    </rdfs:subClassOf>
+    <rdfs:range rdf:resource="#CategoryList"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
   </owl:Class>
   <owl:Class rdf:ID="HolisticRubric">
     <rdfs:subClassOf rdf:resource="#Rubric"/>
   </owl:Class>
   <owl:Class rdf:ID="hasScope">
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-    >1</owl:maxCardinality>
-    <rdfs:domain rdf:resource="#Rubric"/>
-    <rdfs:range>
-      <owl:Class rdf:ID="Scope"/>
-    </rdfs:range>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="Scope"/>
+    <rdfs:domain rdf:resource="#Rubric"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
   </owl:Class>
   <owl:Class rdf:ID="ChecklistRubric">
     <rdfs:subClassOf rdf:resource="#Rubric"/>
   </owl:Class>
-  <owl:Class rdf:about="#ListObjectProperty">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:ID="CategoryList">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
-        <owl:allValuesFrom>
-          <owl:Class rdf:ID="Level"/>
-        </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
   <owl:Class rdf:ID="LevelList">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
         <owl:allValuesFrom>
           <owl:Class rdf:ID="Level"/>
         </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="ElementList">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
         <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
-        <owl:allValuesFrom>
-          <owl:Class rdf:ID="Element"/>
-        </owl:allValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </owl:Class>
   <owl:Class rdf:ID="AnalyticRubric">
     <rdfs:subClassOf rdf:resource="#Rubric"/>
   </owl:Class>
-  <owl:Class rdf:ID="Category">
+  <owl:Class rdf:about="#CategoryList">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Category"/>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Category">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:ID="hasLevels">
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-    <rdfs:domain rdf:resource="#Element"/>
-    <rdfs:range rdf:resource="#LevelList"/>
     <rdfs:subClassOf rdf:resource="#ListObjectProperty"/>
+    <rdfs:range rdf:resource="#LevelList"/>
+    <rdfs:domain rdf:resource="#Element"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
   </owl:Class>
   <owl:Class rdf:ID="hasElements">
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-    <rdfs:range rdf:resource="#ElementList"/>
-    <rdfs:domain rdf:resource="#Category"/>
     <rdfs:subClassOf rdf:resource="#ListObjectProperty"/>
+    <rdfs:domain rdf:resource="#Category"/>
+    <rdfs:range rdf:resource="ElementList"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
   </owl:Class>
-  <owl:Class rdf:ID="Level">
+  <owl:Class rdf:about="#Level">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ElementList">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Element"/>
+        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </owl:Class>
   <owl:Class rdf:ID="Evaluation">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -103,39 +96,39 @@
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <xsd:string rdf:ID="criterion">
-    <rdfs:domain rdf:resource="#Element"/>
     <rdfs:subClassOf>
       <xsd:string rdf:ID="StringDatatypeProperty">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
       </xsd:string>
     </rdfs:subClassOf>
+    <rdfs:domain rdf:resource="#Element"/>
   </xsd:string>
   <Scope rdf:ID="Self"/>
   <xsd:string rdf:ID="elementFeedback">
-    <rdfs:domain rdf:resource="#Element"/>
     <rdfs:subClassOf>
       <xsd:string rdf:ID="feedback">
         <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
       </xsd:string>
     </rdfs:subClassOf>
+    <rdfs:domain rdf:resource="#Element"/>
   </xsd:string>
   <xsd:integer rdf:ID="score">
-    <rdfs:domain rdf:resource="#Level"/>
     <rdfs:subClassOf>
       <xsd:integer rdf:ID="IntegerDatatypeProperty">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
       </xsd:integer>
     </rdfs:subClassOf>
+    <rdfs:domain rdf:resource="#Level"/>
   </xsd:integer>
   <Scope rdf:ID="Team"/>
   <Scope rdf:ID="Individual"/>
   <xsd:string rdf:ID="benchmark">
-    <rdfs:domain rdf:resource="#Element"/>
     <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Element"/>
   </xsd:string>
   <xsd:string rdf:ID="levelFeedback">
-    <rdfs:domain rdf:resource="#Level"/>
     <rdfs:subClassOf rdf:resource="#feedback"/>
+    <rdfs:domain rdf:resource="#Level"/>
   </xsd:string>
   <xsd:ID rdf:ID="key">
     <rdfs:subClassOf>
@@ -145,9 +138,7 @@
     </rdfs:subClassOf>
   </xsd:ID>
   <xsd:string rdf:ID="title">
-    <rdfs:domain rdf:resource="#Rubric"/>
     <rdfs:subClassOf rdf:resource="#StringDatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Rubric"/>
   </xsd:string>
 </rdf:RDF>
-
-<!-- Created with TopBraid Composer -->
