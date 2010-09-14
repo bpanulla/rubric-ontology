@@ -1,0 +1,7 @@
+rubric-ontology
+
+Creator: Brian Panulla
+
+Semantic Web ontology (defined vocabulary) for describing educational rubrics. Represented in OWL/XML,
+this ontology is based on domain modeling done at the Solutions Institute of Penn State University
+from 2007-08.
