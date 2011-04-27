@@ -7,13 +7,11 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xml:base="http://rubrichub.org/owl/rubric/2010/01/rubric.owl">
   <owl:Ontology rdf:about="">
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1.0</owl:versionInfo>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.1</owl:versionInfo>
   </owl:Ontology>
-  <owl:Class rdf:ID="AnalyticRubric">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Rubric"/>
-    </rdfs:subClassOf>
+  <owl:Class rdf:about="#AnalyticRubric">
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+    <rdfs:label>Analytic Rubric</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="LevelList">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
@@ -39,9 +37,8 @@
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:ID="ChecklistRubric">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Rubric"/>
-    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Rubric"/>
+    <rdfs:label>Checklist Rubric</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="CriteriaList">
     <rdfs:subClassOf>
@@ -65,6 +62,7 @@
   </owl:Class>
   <owl:Class rdf:ID="GridRubric">
     <rdfs:subClassOf rdf:resource="#AnalyticRubric"/>
+    <rdfs:label>Analytic Grid Rubric</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="CategoryList">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
@@ -85,9 +83,11 @@
   </owl:Class>
   <owl:Class rdf:about="#Rubric">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>Generic Rubric</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:ID="HolisticRubric">
+  <owl:Class rdf:about="#HolisticRubric">
     <rdfs:subClassOf rdf:resource="#Rubric"/>
+    <rdfs:label>Holistic Rubric</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#Category">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
