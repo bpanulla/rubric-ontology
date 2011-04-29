@@ -60,10 +60,6 @@
   <owl:Class rdf:about="#Criterion">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
-  <owl:Class rdf:ID="GridRubric">
-    <rdfs:subClassOf rdf:resource="#AnalyticRubric"/>
-    <rdfs:label>Analytic Grid Rubric</rdfs:label>
-  </owl:Class>
   <owl:Class rdf:ID="CategoryList">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     <rdfs:subClassOf>
@@ -148,23 +144,20 @@
   </owl:DatatypeProperty>
   <Scope rdf:ID="Team"/>
   <ListObjectProperty rdf:ID="hasCriteria">
-    <rdfs:domain rdf:resource="#Category"/>
     <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
     >1</owl:maxCardinality>
     <rdfs:range rdf:resource="#CriteriaList"/>
   </ListObjectProperty>
   <Scope rdf:ID="Self"/>
-  <ListObjectProperty rdf:ID="hasCategories">
-    <rdfs:range rdf:resource="#CategoryList"/>
+  <ListObjectProperty rdf:ID="hasHeadings">
+    <rdfs:range rdf:resource="#LevelList"/>
     <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
     >1</owl:maxCardinality>
-    <rdfs:domain rdf:resource="#Rubric"/>
   </ListObjectProperty>
   <ListObjectProperty rdf:ID="hasLevels">
     <rdfs:range rdf:resource="#LevelList"/>
     <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
     >1</owl:maxCardinality>
-    <rdfs:domain rdf:resource="#Criterion"/>
   </ListObjectProperty>
   <Scope rdf:ID="Individual"/>
 </rdf:RDF>
